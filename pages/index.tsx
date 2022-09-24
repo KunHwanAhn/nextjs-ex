@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Head from 'next/head';
+
 function Header({ title }) {
   return <h1>{title ? title : 'Default title'}</h1>;
 }
@@ -13,15 +15,20 @@ export default function HomePage() {
   }
 
   return (
-    <div>
-      <Header title="Develop. Preview. Ship. 🚀" />
-      <ul>
-        {names.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
+    <>
+      <Head>
+        <title>My Title</title>
+      </Head>
+      <div>
+        <Header title="Develop. Preview. Ship. 🚀" />
+        <ul>
+          {names.map((name) => (
+            <li key={name}>{name}</li>
+          ))}
+        </ul>
 
-      <button onClick={handleClick}>Like ({likes})</button>
-    </div>
+        <button onClick={handleClick}>Like ({likes})</button>
+      </div>
+    </>
   );
 }
